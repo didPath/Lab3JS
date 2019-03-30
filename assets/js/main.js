@@ -432,9 +432,9 @@ function onSubmit(e) {
 		
     }
 }*/
+fetchBookmarks();
 
 document.querySelector('#my-form').addEventListener('submit', saveBookmark);
-fetchBookmarks();
 
 function saveBookmark(e) {
   // prevent default form submitting
@@ -485,6 +485,8 @@ console.log(inFormation);*/
 	
 
 	fetchBookmarks();
+
+	location.reload();
 }
 
 function fetchBookmarks(){
