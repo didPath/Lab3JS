@@ -47,22 +47,37 @@
 				<span class="image main"><img src="images/pic01.jpg" alt="" /></span>
 				<table>
 					<tr>
-						<td style="width:31%"><h2>Profile :</h2></td>
-						<td><p>Student Computer Engineering banchelor's degree in Chiangmai University ,who learning about web
-							developer (261207)</p></td>
+						<td style="width:31%">
+							<h2>Profile :</h2>
+						</td>
+						<td>
+							<p>Student Computer Engineering banchelor's degree in Chiangmai University ,who learning
+								about web
+								developer (261207)</p>
+						</td>
 					</tr>
 					<tr>
-						<td><h2><b>Skill :</b></h2></td>
-						<td><table>
-							<tr>
-								<td style="width: 33%"><h3>Web Design</h3>
-								<p>Design websign from css&html</p></td>
-								<td style="width: 33%"><h3>Object-Oriented Programming</h3>
-								<p>Design opperation of program by Object-Oriented Programming</p></td>
-								<td style="width: 33%"><h3>Graphic Design</h3>
-								<p>Design graphic from Photoshop</p></td>
-							</tr>
-						</table></td>
+						<td>
+							<h2><b>Skill :</b></h2>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td style="width: 33%">
+										<h3>Web Design</h3>
+										<p>Design websign from css&html</p>
+									</td>
+									<td style="width: 33%">
+										<h3>Object-Oriented Programming</h3>
+										<p>Design opperation of program by Object-Oriented Programming</p>
+									</td>
+									<td style="width: 33%">
+										<h3>Graphic Design</h3>
+										<p>Design graphic from Photoshop</p>
+									</td>
+								</tr>
+							</table>
+						</td>
 					</tr>
 					<tr>
 						<td>
@@ -88,7 +103,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td><h2>Experience :</h2></td>
+						<td>
+							<h2>Experience :</h2>
+						</td>
 						<td>
 							<h2><u><i>
 										1-Year
@@ -110,10 +127,10 @@
 							<h3>
 								KeeKangRun
 							</h3>
-								- - - A game like Mario (Comp. Pro.)
+							- - - A game like Mario (Comp. Pro.)
 							<hr style="padding-bottom: 0px;margin-bottom: 1rem">
 							<h2><u><i>
-							2-Year
+										2-Year
 									</i></u></h2>
 							<h3>
 								Werewolf
@@ -125,7 +142,8 @@
 								Bye Mom
 							</h3>
 							<p>
-								- - - Box game play by click in a right color botton following a light. (Digital & Logic)
+								- - - Box game play by click in a right color botton following a light. (Digital &
+								Logic)
 							</p>
 							<hr>
 						</td>
@@ -165,14 +183,14 @@
 						</td>
 					</tr>
 				</table>
-				
+
 			</article>
 
 
 			<!-- Contact -->
 			<article id="contact">
 				<h2 class="major">Contact</h2>
-				<form method="post" action="#">
+				<form method="post" action="" id="my-form">
 					<div class="fields">
 						<div class="field half">
 							<label for="name">Name</label>
@@ -182,20 +200,46 @@
 							<label for="email">Email</label>
 							<input type="text" name="email" id="email" />
 						</div>
+						<div class="field half">
+							<input type="radio" name="gender" id="gender" value='male'>
+							<label for="gender">Male</label>
+						</div>
+						<div class="field falf">
+							<input type="radio" name="gender" id="gender" value='female'>
+							<label for="gender">Female</label>
+						</div>
+						<div class="field">
+							<label for="subject">Subject</label>
+							<input type="text" name="subject" id="subject" />
+						</div>
 						<div class="field">
 							<label for="message">Message</label>
 							<textarea name="message" id="message" rows="4"></textarea>
 						</div>
 					</div>
+					<div class="msg"></div>
 					<ul class="actions">
-						<li><input type="submit" value="Send Message" class="primary" /></li>
+						<li><input type="submit" value="Send Message" id="submit" class="primary" /></li>
 						<li><input type="reset" value="Reset" /></li>
 					</ul>
+					<ul id="users"></ul>
+					<div id="container" style="display:block;box-sizing: border-box">
+						<div class="row">
+							<div class="col-md-12">
+								<div id="InformationsResults">
+									<div class="car-deck text-center"></div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</form>
 				<ul class="icons">
-					<li><a href="https://www.facebook.com/didsjoe" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="https://www.instagram.com/didsjoe/?hl=en" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-					<li><a href="https://github.com/didPath" class="icon fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="https://www.facebook.com/didsjoe" class="icon fa-facebook"><span
+								class="label">Facebook</span></a></li>
+					<li><a href="https://www.instagram.com/didsjoe/?hl=en" class="icon fa-instagram"><span
+								class="label">Instagram</span></a></li>
+					<li><a href="https://github.com/didPath" class="icon fa-github"><span
+								class="label">GitHub</span></a></li>
 				</ul>
 			</article>
 
@@ -467,6 +511,15 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
 
 </html>

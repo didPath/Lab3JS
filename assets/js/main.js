@@ -399,3 +399,134 @@
 					});
 
 })(jQuery);
+
+/*const myform = document.querySelector('#my-form');
+const nameInput = document.querySelector('#name');
+const emailInput = document.querySelector('#email');
+const genderInput = document.querySelector('#gender');
+const subjectInput = document.querySelector('#subject')
+const msg = document.querySelector('.msg');
+const userList = document.querySelector('#users');
+
+myform.addEventListener('submit', onSubmit);
+function onSubmit(e) {
+    e.preventDefault();
+	//console.log(nameInput.value + ' ' + emailInput.value);
+	
+	
+
+    if (nameInput.value === '' || emailInput.value === '') {
+        msg.classList.add('error');
+        msg.innerHTML = 'Please enter all fields';
+
+    } else {
+        const li = document.createElement('li');
+        const text = document.createTextNode(`${nameInput.value}: ${emailInput.value}`);
+        li.appendChild(text);
+        //console.log(li);
+
+        userList.appendChild(li);
+
+        msg.innerHTML = "";
+		msg.classList.remove('error');
+		
+    }
+}*/
+
+document.querySelector('#my-form').addEventListener('submit', saveBookmark);
+fetchBookmarks();
+
+function saveBookmark(e) {
+  // prevent default form submitting
+  e.preventDefault();
+  // get form values
+  var Name = document.querySelector("#name").value;
+	var Email = document.querySelector("#email").value;
+	var Gender = document.querySelector("#gender").value;
+	var Subject = document.querySelector("#subject").value;
+	var Message = document.querySelector("#message").value;
+	
+
+	if(!validateForm(Name,Email,Gender,Subject,Message)){
+		console.log("55555");
+		return false;
+	}
+
+  var inFormation = {
+		name: Name,
+		email: Email,
+		gender: Gender,
+		subject: Subject,
+		message: Message
+	}
+
+	console.log(inFormation);
+/*localStorage.setItem('Informations',JSON.stringify(inFormation));
+console.log(JSON.parse(localStorage.getItem('Informations')));
+console.log(inFormation);*/
+
+	if(localStorage.getItem('Informations') === null){
+			var Informations = [];
+			Informations.push(inFormation);
+			localStorage.setItem("Informations",JSON.stringify(Informations));
+	} else {
+		console.log(inFormation);
+		var Informations = JSON.parse(localStorage.getItem('Informations'));
+		Informations.push(inFormation);
+		console.log("Right");
+		localStorage.setItem('Informations',JSON.stringify(Informations));
+	}
+	console.log(inFormation);
+	document.querySelector('#name').value = '';
+	document.querySelector('#email').value = '';
+	document.querySelector('#gender').value = '';
+	document.querySelector('#subject').value = '';
+	document.querySelector('#message').value = '';
+	
+
+	fetchBookmarks();
+}
+
+function fetchBookmarks(){
+	var Informations = JSON.parse(localStorage.getItem('Informations'));
+	var InformationsResults = document.querySelector('#InformationsResults');
+	InformationsResults.innerHTML = '';
+	var str = '<div class="card-deck text-center">';
+	for (var i=0; i<Informations.length; i++) {
+    var name = Informations[i].name;
+		var email = Informations[i].email;
+		var gender = Informations[i].gender;
+		var subject = Informations[i].subject;
+		var message = Informations[i].message;
+    str += '<div class="col-sm-6">' 
+        + `<div class="card mb-4 shadow-sm">`
+        + `<pre  style="padding:0px;margin:0px"><h5 style="padding:0px;margin:0px">Name : ${name} Email : ${email} Gender : ${gender} <br>Subject : ${subject} <br>Message : ${message}</h5></pre>`
+				+ ` <a onclick="deleteBookmark('${email}')" style="padding-bottom:5px;margin:0px">Delete</a>`
+        + `</div></div>`;
+  }
+  str += '</div>'
+
+  InformationsResults.innerHTML = str;
+}
+
+
+function deleteBookmark(email){
+	var Informations = JSON.parse(localStorage.getItem('Informations'));
+	for (var i=0; i<Informations.length;i++){
+		if(Informations[i].email === email){
+			Informations.splice(i,1);
+		}
+	}
+	localStorage.setItem('Informations',JSON.stringify(Informations));
+	fetchBookmarks();
+}
+
+
+function validateForm(Name,Email,Gender,Subject,Message){
+	if(!Name || !Email|| !Gender|| !Subject|| !Message){
+		alert('Please fill in all data fields');
+		return false;
+	}
+
+  return true;
+}
